@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Class MacBook
- */
 class MacBook extends Computer
 {
     const IS_DESKTOP = false;
@@ -10,9 +7,9 @@ class MacBook extends Computer
     public function __construct()
     {
         $this->computerName = 'Apple MacBook Air 13"';
-        $this->cpu = 'Intel Core i5 (1.6 - 2.7 GHz)';
-        $this->ram = 'RAM 8 Gb';
-        $this->video = 'Intel HD Graphics 6000';
+        $this->cpu = 'I-7';
+        $this->ram = '8Gb';
+        $this->video = 'Intel HD';
         $this->memory = 'SSD 256 Gb';
     }
 

@@ -2,78 +2,47 @@
 
 class Computer
 {
-    /**
-     * @var string
-     */
     protected $cpu;
-
-    /**
-     * @var string
-     */
     protected $ram;
-
-    /**
-     * @var string
-     */
     protected $video;
-
-    /**
-     * @var string
-     */
     protected $memory;
-
-    /**
-     * @var string
-     */
     protected $computerName = 'Computer';
-
-    /**
-     * @var bool
-     */
     private $isWorking = false;
 
     public function start()
     {
-        $this->isWorking = true;
-        echo $this->computerName . ' is working' . PHP_EOL;
+        printf("Computer is starting..".PHP_EOL);
+        $this->isWorking=True;
     }
 
     public function shutDown()
     {
-        $this->isWorking = false;
-        echo $this->computerName . ' is off' . PHP_EOL;
+        printf("Computer is stopping..".PHP_EOL);
+        $this->isWorking=False;
     }
 
     public function restart()
     {
-        if ($this->isWorking) {
-            $this->shutDown();
-
-            for ($timer = 5; $timer > 0; $timer--) {
-                echo '.';
+        if ($this->isWorking==True){
+            $this->Shutdown();
+            //printing 5 dots
+            for($i=0;$i<5;$i++){
+                printf(".");
                 sleep(1);
             }
-            echo PHP_EOL;
-
-            $this->start();
-        } else {
-            echo $this->computerName . ' must be turned on for restart' . PHP_EOL;
+            printf(PHP_EOL);
+            $this->Start();
+        }
+        else{
+            printf("Computer is off. You can't restart it now/".PHP_EOL);
         }
     }
 
     public function printParameters()
     {
-        $result = $this->computerName . ' must be turned on for print parameters' . PHP_EOL;
+        $result = $this->computerName . ' is not working.' . PHP_EOL;
         if ($this->isWorking) {
-            $result = sprintf(
-                "<<<<<<<<<<\nName: %s\nCPU: %s\nRAM: %s\nVideo card: %s\nMemory: %s\n>>>>>>>>>>\n",
-                $this->computerName,
-                $this->cpu,
-                $this->ram,
-                $this->video,
-                $this->memory
-            );
-        }
+            $result = printf($this->computerName.' params:'.' cpu '.$this->cpu. ' ram '.$this->ram.' video '.$this->video.' memory '.$this->memory);}
 
         echo $result;
     }

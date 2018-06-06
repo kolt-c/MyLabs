@@ -1,5 +1,6 @@
 <?php
 
+require_once(__DIR__ . '/Console.php');
 require_once(__DIR__ . '/Computer.php');
 require_once(__DIR__ . '/Asus.php');
 require_once(__DIR__ . '/Lenovo.php');

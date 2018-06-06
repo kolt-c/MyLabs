@@ -2,7 +2,7 @@
 $result=0;
 
 $x=trim($argv[1]);
-$oper=trim($argv[2];
+$oper=trim($argv[2]);
 $y=trim($argv[3]);
 var_dump($argv);
 echo(PHP_EOL);
