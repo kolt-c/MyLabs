@@ -75,6 +75,14 @@ class File
     }
 
     /**
+     * @return string
+     */
+    public function read()
+    {
+        return file_get_contents($this->file);
+    }
+
+    /**
      * @param int $bytes
      * @return string
      */

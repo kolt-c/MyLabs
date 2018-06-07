@@ -12,13 +12,14 @@ class File
 
     /**
      * File constructor.
-     * @param $file
+     * @param string $file
+     * @param bool $create
      * @throws Exception
      */
-    public function __construct($file)
+    public function __construct($file, $create = false)
     {
-        if (!file_exists($file)) {
-            throw new Exception('File not exists');
+        if (!file_exists($file) && (false === $create || false === fopen($file, "w"))) {
+            throw new Exception('File not exists and can not be created');
         }
 
         $this->file = $file;
@@ -72,6 +73,22 @@ class File
     public function getLastEditedDate($format = 'Y-m-d H:i:s')
     {
         return date($format, filemtime($this->file));
+    }
+
+    /**
+     * @return string
+     */
+    public function read()
+    {
+        return file_get_contents($this->file);
+    }
+
+    /**
+     * @param string $string
+     */
+    public function write($string)
+    {
+        file_put_contents($this->file, $string, FILE_APPEND);
     }
 
     /**
